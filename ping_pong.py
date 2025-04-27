@@ -36,7 +36,7 @@ class Player(GameSprite):
             self.rect.y += self.speed
 
 #Игровая сцена:
-back = (200, 255, 255) # цвет фона (background)
+back = (232, 206, 125) # цвет фона (background)
 win_width = 600
 win_height = 500
 window = display.set_mode((win_width, win_height))
@@ -46,12 +46,12 @@ window.fill(back)
 game = True
 finish = False
 clock = time.Clock()
-FPS = 60
+FPS = 100
 
 #создания мяча и ракетки    
-racket1 = Player('racket.png', 30, 200, 4, 50, 150) # при созданни спрайта добавляется еще два параметра
-racket2 = Player('racket.png', 520, 200, 4, 50, 150)
-ball = GameSprite('tenis_ball.png', 200, 200, 4, 50, 50)
+racket1 = Player('palich.png', 30, 200, 4, 30, 100) # при созданни спрайта добавляется еще два параметра
+racket2 = Player('palich.png', 520, 200, 4, 30, 100)
+ball = GameSprite('crug.png', 200, 200, 4, 50, 50)
 
 font.init()
 font = font.Font(None, 35)
@@ -84,13 +84,13 @@ while game:
         # если мяч улетел дальше ракетки, выводим условие проигрыша для первого игрока
         if ball.rect.x < 0:
             finish = True
-            window.blit(lose1, (200, 200))
+            window.blit(lose1, (300, 300))
             game_over = True
 
         # если мяч улетел дальше ракетки, выводим условие проигрыша для второго игрока
         if ball.rect.x > win_width:
             finish = True
-            window.blit(lose2, (200, 200))
+            window.blit(lose2, (300, 300))
             game_over = True
 
         racket1.reset()
